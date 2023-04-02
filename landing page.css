@@ -28,7 +28,7 @@ header {
   display: flex;
   align-items: flex-start;
   margin-bottom: 2em;
-  padding: 1em 1em;
+  padding: 1em 1em 1.5em 1em;
 }
 .logo {
   margin-right: 3em;
@@ -44,6 +44,12 @@ nav *,
   font-size: 15px;
   font-weight: 500;
   color: var(--Medium-gray);
+  transition: color 100ms linear;
+}
+nav *:hover,
+.cta *:hover {
+  color: var(--Almost-black);
+  border-color: var(--Almost-black);
 }
 .cta {
   margin-left: auto;
@@ -60,21 +66,37 @@ nav *,
   left: 5px;
   bottom: 2px;
 }
+.company-btn:hover,
+.features-btn:hover {
+  color: var(--Almost-black);
+}
 .dropdown {
   position: relative;
 }
 .dropdown-menu {
+  transform: translateY(-30px);
+  opacity: 0;
+  transition: transform 100ms linear, opacity 100ms linear;
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: max-content;
-  gap: 14px;
+  gap: 12px;
   border-radius: 10px;
-  padding: 1.55em 1.2em;
+  padding: 1.45em 1.2em;
   position: absolute;
   top: 2.2em;
   box-shadow: 0 0 50px -18px var(--Medium-gray);
+}
+.dropdown.active .dropdown-menu {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.dropdown svg.active {
+  transform: rotate(180deg);
 }
 .features-btn + .dropdown-menu {
   right: 0;
@@ -90,6 +112,7 @@ nav *,
 }
 .dropdown-menu svg {
   margin-right: 10px;
+  transition: transform 100ms linear;
 }
 .container {
   display: grid;
@@ -102,7 +125,7 @@ nav *,
   flex-direction: column;
   height: 100%;
   position: relative;
-  margin-top: 5em;
+  margin-top: 3.5em;
 }
 .hero-img > img {
   width: 100%;
