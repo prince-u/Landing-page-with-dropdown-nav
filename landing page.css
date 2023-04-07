@@ -70,8 +70,16 @@ nav *:hover,
 .features-btn:hover {
   color: var(--Almost-black);
 }
+.company-btn,
+.features-btn {
+  color: inherit;
+}
 .dropdown {
   position: relative;
+  color: var(--Medium-gray);
+}
+.dropdown.active {
+  color: var(--Almost-black);
 }
 .dropdown-menu {
   transform: translateY(-30px);
@@ -89,13 +97,14 @@ nav *:hover,
   position: absolute;
   top: 2.2em;
   box-shadow: 0 0 50px -18px var(--Medium-gray);
+  z-index: 10;
 }
 .dropdown.active .dropdown-menu {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
-.dropdown svg.active {
+.dropdown.active svg {
   transform: rotate(180deg);
 }
 .features-btn + .dropdown-menu {
@@ -110,7 +119,7 @@ nav *:hover,
   display: flex;
   align-items: center;
 }
-.dropdown-menu svg {
+.dropdown svg {
   margin-right: 10px;
   transition: transform 100ms linear;
 }

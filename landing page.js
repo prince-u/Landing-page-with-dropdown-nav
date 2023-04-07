@@ -1,19 +1,15 @@
-const dropDowns = document.querySelectorAll(".dropdown button");
+const dropDowns = document.querySelectorAll(".dropdown");
 
 document.addEventListener("click", (e) => {
-  let closestParent = e.target.closest(".dropdown");
-  if (closestParent) {
-    if (closestParent.classList.contains("active")) {
-      closestParent.classList.remove("active");
-      return;
-    }
-    dropDowns.forEach((dropDown) => {
-      dropDown.closest(".dropdown").classList.remove("active");
-    });
-    closestParent.classList.add("active");
-  } else {
-    dropDowns.forEach((dropDown) => {
-      dropDown.closest(".dropdown").classList.remove("active");
-    });
+  const activeDropDown = e.target.closest(".dropdown");
+  if (activeDropDown && !e.target.matches(".dropdown button")) return;
+
+  if (e.target.matches(".dropdown button")) {
+    activeDropDown.classList.toggle("active");
   }
+
+  dropDowns.forEach((dropdown) => {
+    if (dropdown == activeDropDown) return;
+    dropdown.classList.remove("active");
+  });
 });
