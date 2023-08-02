@@ -24,7 +24,7 @@ const darkBg = document.querySelector("[data-dark-bg]");
 const body = document.querySelector("body");
 
 sideBarBtn.addEventListener("click", (e) => {
-  console.log("k");
+  console.log("u");
   sideBarMenu.classList.toggle("active");
   darkBg.classList.toggle("dark-bg");
   if (sideBarMenu.classList.contains("active")) {
